@@ -7,6 +7,9 @@
 constexpr size_t ALPHABET_SIZE = 26;
 
 bool isAnagram(std::string str1,std::string str2){
+    if(str1.length() != str2.length())
+        return false;
+    
     int count[ALPHABET_SIZE] = {0};
     size_t sizeStr1 = str1.length();
     for(int i = 0;i<sizeStr1;i++){
