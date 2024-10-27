@@ -13,6 +13,6 @@ Throughout my solutions, I utilize a variety of data structures depending on the
 #Linked Lists: When dynamic memory management and insertion are needed.  
 
 LeetCode Progress    
-#Solved problems: 79  
+#Solved problems: 105
 #Language: C++/C#  
 Feel free to fork this repository, improve the solutions, or provide alternatives. Pull requests are welcome!
