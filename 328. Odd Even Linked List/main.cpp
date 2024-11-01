@@ -44,6 +44,9 @@ ListNode* oddEvenListDummy(ListNode* head){ // dummy solution
 }
 
 ListNode* oddEvenList(ListNode* head){
+    if(!head) return nullptr;
+    if(!head->next) return head;
+
     ListNode* odd = head;
     ListNode* even = head->next;
     ListNode* evenHead = even;
