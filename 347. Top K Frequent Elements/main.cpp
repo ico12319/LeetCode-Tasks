@@ -1,44 +1,35 @@
 #include <iostream>
+#include <queue>
 
 //347. Top K Frequent Elements
-//Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any orde
+//Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
 
-bool customCmp(std::pair<int,int>& a,std::pair<int,int>& b){
-    if (a.second == b.second)
-        return a.first < b.first;
-    return a.second > b.second;
-}
-
-std::unordered_map<int, int> fillMap(const std::vector<int>& nums){
-    std::unordered_map<int, int> timesOccur;
-    for(const auto& el : nums){
-        if(timesOccur.find(el) != timesOccur.end())
-            timesOccur[el]++;
-        else
-            timesOccur[el] = 1;
+struct pair_comparator{
+    bool operator()(const std::pair<int,int>& p1,const std::pair<int,int>& p2) const{
+        return p1.second < p2.second;
     }
-    return timesOccur;
-}
+};
 
-std::vector<std::pair<int,int>>sortByFrequency(std::vector<int>& nums){
-    std::unordered_map<int, int> timesOccur = fillMap(nums);
-    std::vector<std::pair<int,int>> pairs(timesOccur.begin(),timesOccur.end());
-    std::sort(pairs.begin(),pairs.end(),customCmp);
-    return pairs;
-}
-
-std::vector<int> topKFrequent(std::vector<int>& nums, int k) {
+std::vector<int> top_k_frequent(std::vector<int>& nums,int k){
+    if(nums.empty()) return {};
+    std::unordered_map<int, int> freq;
+    for(const auto& num : nums)
+        freq[num]++;
+    std::vector<std::pair<int,int>> temp(freq.begin(),freq.end());
+    std::priority_queue<std::pair<int,int>,std::vector<std::pair<int,int>>,pair_comparator> pq(temp.begin(),temp.end());
     std::vector<int> res;
-    std::vector<std::pair<int,int>> pairs = sortByFrequency(nums);
-    for(int i = 0;i<k;i++)
-        res.push_back(pairs[i].first);
+    for(int i = 0;i<k;i++){
+        res.push_back(pq.top().first);
+        pq.pop();
+    }
     return res;
 }
 
-
 int main(int argc, const char * argv[]) {
-    std::vector<int> nums = {1,1,1,2,2,3};
-    std::vector<int> topK = topKFrequent(nums, 2);
-    for(const auto& el : topK)
+    std::vector<int> nums = {1};
+    int k = 1;
+    auto res = top_k_frequent(nums, k);
+    for(const auto& el : res)
         std::cout<<el<<" ";
-    }
+    std::cout<<std::endl;
+}
