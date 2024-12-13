@@ -1,48 +1,34 @@
 #include <iostream>
 #include <queue>
-#include <list>
-#include <unordered_map>
-#include <string>
 
-// 451. Sort Characters By Frequency
-// Given a string s, sort it in decreasing order based on the frequency of the characters. The frequency of a character is the number of times it appears in the string. Return the sorted string. If there are multiple answers, return any of them.
+//451. Sort Characters By Frequency
+//Given a string s, sort it in decreasing order based on the frequency of the characters. The frequency of a character is the number of times it appears in the string.Return the sorted string. If there are multiple answers, return any of them.
 
-std::unordered_map<char, int> turnInMap(const std::string& str){
-    
-    std::unordered_map<char, int>map;
-    for(const auto& ch : str){
-        map[ch]++;
+struct pair_comparator{
+    bool operator()(const std::pair<int,int>& p1,const std::pair<int, int>& p2) const{
+        return p1.second < p2.second;
     }
-    return map;
-}
+};
 
-bool sortString(std::pair<char,int>& a,std::pair<char,int>& b){
-    if(a.second == b.second)
-        return a.first < b.first;
-    return a.second > b.second;
-}
-
-std::string toString(std::vector<std::pair<char,int>>& v){
+std::string frequency_sort(std::string& s){
+    std::unordered_map<char, int> freq;
     std::string res;
-    const size_t size = v.size();
-    for(int i = 0;i<size;i++){
-        res+=v[i].first;
+    for(const auto& el : s)
+        freq[el]++;
+    std::vector<std::pair<char,int>> temp(freq.begin(),freq.end());
+    std::priority_queue<std::pair<char,int>,std::vector<std::pair<char,int>>,pair_comparator> pq(temp.begin(),temp.end());
+    while(!pq.empty()){
+        res.push_back(pq.top().first);
+        freq[pq.top().first]--;
+        if(freq[pq.top().first] == 0){
+            freq.erase(pq.top().first);
+            pq.pop();
+        }
     }
     return res;
 }
 
-std::string frequencySort(const std::string& str){
-    std::unordered_map<char, int> map = turnInMap(str);
-    std::vector<std::pair<char,int>> p(str.length());
-    const size_t strSize = str.length();
-    for(int i = 0;i<strSize;i++){
-        p[i] = std::make_pair(str[i], map[str[i]]);
-    }
-    std::sort(p.begin(),p.end(),sortString);
-    return toString(p);
-}
-
-int main(){
-    std::string str = "tree";
-    std::cout<<frequencySort(str)<<std::endl;
+int main(int argc, const char * argv[]) {
+    std::string s = "Aabb";
+    std::cout<<frequency_sort(s)<<std::endl;
 }
