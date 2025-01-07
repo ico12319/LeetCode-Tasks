@@ -1,23 +1,22 @@
-Repository Structure
+# LeetCode_Tasks
 
-Each problem has its own folder named after the LeetCode problem number. Inside each folder, you'll find:
+These are tasks I have solved for practice over the time from the LeetCode site. Most of the problems are solved using C++ language and are mostly linked with 
+Data Structure and Algorithms.
 
-main.cpp – My C++/C# solution for the problem.
-Data Structures Used
+The main data types in the problems are:
+1. Vector
+2. String
+3. Stack
+4. Queue
+5. Linked Lists(Singly and Doubly)
+6. Binary Trees
+7. N-ary Trees
+8. Binary Search Trees
+9. Graphs(BFS, DFS)
+10. Graphs shortes path(BFS,Dijkstra)
+11. Hash Tables and Hash Sets
+13. Priority Queue (Min & Max heap)
+14. Sorting Algorithms
+15. AVL Trees (Set & Map)
 
-Throughout my solutions, I utilize a variety of data structures depending on the problem. Here are some of the commonly used ones:
-
-Arrays: For storing and accessing sequential data.
-Hash Maps / Dictionaries: For constant time lookups and managing key-value pairs.
-Sets: To handle unique elements and perform efficient membership checks.
-Stacks: For problems involving last-in, first-out (LIFO) order.
-Queues: To maintain first-in, first-out (FIFO) order, useful in breadth-first search (BFS) problems.
-Linked Lists: When dynamic memory management and insertion are needed.
-Binary Trees: For hierarchical data representation and traversal operations.
-Binary Search Trees: For sorted data and efficient search, insert, and delete operations.
-Min Heaps / Max Heaps: For priority queue implementations and accessing minimum or maximum elements efficiently.
-LeetCode Progress
-
-Solved problems: 185
-Language: C++/C#
-Feel free to fork this repository, improve the solutions, or provide alternatives. Pull requests are welcome!
+# My Profile --> https://leetcode.com/u/ico12319/
