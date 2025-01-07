@@ -13,7 +13,7 @@ The main data types in the problems are:
 7. N-ary Trees
 8. Binary Search Trees
 9. Graphs(BFS, DFS)
-10. Graphs shortes path(BFS,Dijkstra)
+10. Graphs shortest path(BFS,Dijkstra)
 11. Hash Tables and Hash Sets
 13. Priority Queue (Min & Max heap)
 14. Sorting Algorithms
