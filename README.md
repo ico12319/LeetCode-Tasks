@@ -1,6 +1,6 @@
 # LeetCode_Tasks
 
-These are tasks I have solved for practice over the time from the LeetCode site. Most of the problems are solved using C++ language and are mostly linked with 
+These are tasks I have solved for practice over the time from the LeetCode site. The problems are solved using C++,Go and C# and are mostly linked with 
 Data Structure and Algorithms.
 
 The main data types in the problems are:
